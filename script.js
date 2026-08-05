@@ -51,14 +51,16 @@ if (productForm) {
 
         fetch(SCRIPT_URL, {
             method: "POST",
-            body: new FormData(productForm)
+            body: new URLSearchParams(new FormData(productForm))
         })
-        .then(() => {
-            alert("Product Added Successfully!");
+        .then(response => response.text())
+        .then(data => {
+            alert(data);
             productForm.reset();
         })
-        .catch(() => {
-            alert("Something went wrong.");
+        .catch(error => {
+            alert(error);
+            console.error(error);
         });
     });
 }
