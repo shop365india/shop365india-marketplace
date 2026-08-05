@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Product - SHOP365 INDIA</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+.container{
+max-width:700px;
+margin:50px auto;
+background:#fff;
+padding:30px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.container h2{
+text-align:center;
+color:#0b4ea2;
+margin-bottom:20px;
+}
+
+.container input,
+.container select,
+.container textarea{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:6px;
+font-size:16px;
+}
+
+.container button{
+width:100%;
+padding:14px;
+background:#0b4ea2;
+color:#fff;
+border:none;
+border-radius:6px;
+font-size:18px;
+cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<div style="background:#0b4ea2;padding:15px;">
+<a href="index.html" style="color:white;text-decoration:none;font-size:22px;font-weight:bold;">
+← SHOP365 INDIA
+</a>
+</div>
+
+<div class="container">
+
+<h2>Add New Product</h2>
+
+<form id="productForm">
+
+<input type="text" name="product" placeholder="Product Name" required>
+
+<select name="category" required>
+<option value="">Select Category</option>
+<option>Daily Use Items</option>
+<option>Women & Beauty</option>
+<option>Fashion</option>
+<option>Mobile & Electronics</option>
+<option>Home & Kitchen</option>
+<option>Electrical</option>
+<option>Automobile</option>
+<option>Industrial</option>
+<option>Agriculture</option>
+<option>Health & Medical</option>
+<option>Packaging Materials</option>
+<option>Others</option>
+</select>
+
+<input type="text" name="brand" placeholder="Brand Name">
+
+<input type="number" name="price" placeholder="Price">
+
+<textarea name="description" rows="5" placeholder="Product Description"></textarea>
+
+<button type="submit">Add Product</button>
+
+</form>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
