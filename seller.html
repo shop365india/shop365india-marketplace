@@ -64,23 +64,27 @@ background:#083a7d;
 <p style="text-align:center;color:#666;margin-bottom:25px;">
 Join SHOP365 INDIA and start selling your products across India.
 </p>
-<form>
+<form id="sellerForm">
 
-<input type="text" placeholder="Company Name" required>
+<input type="text" name="company" placeholder="Company Name" required>
 
-<input type="text" placeholder="Contact Person" required>
+<input type="text" name="contact" placeholder="Contact Person" required>
 
-<input type="text" placeholder="Mobile Number" required>
+<input type="text" name="mobile" placeholder="Mobile Number" required>
 
-<input type="email" placeholder="Email Address">
+<input type="email" name="email" placeholder="Email Address">
 
-<input type="text" placeholder="GST Number">
-<input type="text" placeholder="Business Address">
-<input type="text" placeholder="City">
-<input type="text" placeholder="State">
-<input type="text" placeholder="Pincode">
-    
-<select required>
+<input type="text" name="gst" placeholder="GST Number">
+
+<input type="text" name="address" placeholder="Business Address">
+
+<input type="text" name="city" placeholder="City">
+
+<input type="text" name="state" placeholder="State">
+
+<input type="text" name="pincode" placeholder="Pincode">
+
+<select name="category" required>
     <option value="">Select Product Category</option>
     <option>Electrical</option>
     <option>Industrial</option>
@@ -91,7 +95,7 @@ Join SHOP365 INDIA and start selling your products across India.
     <option>Others</option>
 </select>
 
-<textarea rows="5" placeholder="Describe your business"></textarea>
+<textarea name="description" rows="5" placeholder="Describe your business"></textarea>
 
 <button type="submit">Register Now</button>
 
