@@ -1,17 +1,43 @@
-document.addEventListener("DOMContentLoaded", () => {
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzT0ANkDzSjYz4ZraKnnofO3yCMMoZyvaL-IS2Dnrwv4jUUCXkhII1JUyQrMVppwIJt/exec";
 
-console.log("SHOP365 INDIA Loaded Successfully");
+// Seller Form
+const sellerForm = document.getElementById("sellerForm");
 
-const button = document.querySelector(".hero button");
+if (sellerForm) {
+    sellerForm.addEventListener("submit", function(e) {
+        e.preventDefault();
 
-if(button){
-
-button.addEventListener("click",()=>{
-
-alert("Welcome to SHOP365 INDIA!\nProducts will be available soon.");
-
-});
-
+        fetch(SCRIPT_URL, {
+            method: "POST",
+            body: new FormData(sellerForm)
+        })
+        .then(() => {
+            alert("Seller Registration Submitted Successfully!");
+            sellerForm.reset();
+        })
+        .catch(() => {
+            alert("Something went wrong.");
+        });
+    });
 }
 
-});
+// Requirement Form
+const requirementForm = document.getElementById("requirementForm");
+
+if (requirementForm) {
+    requirementForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        fetch(SCRIPT_URL, {
+            method: "POST",
+            body: new FormData(requirementForm)
+        })
+        .then(() => {
+            alert("Requirement Submitted Successfully!");
+            requirementForm.reset();
+        })
+        .catch(() => {
+            alert("Something went wrong.");
+        });
+    });
+}
