@@ -224,3 +224,44 @@ margin:5px;
 .wa-btn{
 background:#25D366 !important;
 }
+
+.about-company{
+    padding:60px 8%;
+    background:#ffffff;
+    text-align:center;
+}
+
+.about-company h2{
+    font-size:34px;
+    color:#0d47a1;
+    margin-bottom:20px;
+}
+
+.about-company p{
+    max-width:900px;
+    margin:0 auto 40px;
+    font-size:18px;
+    line-height:1.8;
+    color:#555;
+}
+
+.trust-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.trust-card{
+    background:#f8f9fa;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    font-weight:600;
+    transition:.3s;
+}
+
+.trust-card:hover{
+    transform:translateY(-5px);
+    background:#0d47a1;
+    color:#fff;
+}
