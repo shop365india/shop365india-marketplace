@@ -1,1 +1,165 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
 
+body{
+    background:#f5f7fb;
+    color:#222;
+}
+
+header{
+    background:#0d47a1;
+    color:#fff;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.topbar{
+    max-width:1300px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 20px;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:700;
+}
+
+.logo span{
+    color:#ffc107;
+}
+
+.search-box{
+    flex:1;
+    display:flex;
+    max-width:500px;
+}
+
+.search-box input{
+    flex:1;
+    padding:12px;
+    border:none;
+    border-radius:6px 0 0 6px;
+    outline:none;
+}
+
+.search-box button{
+    padding:12px 20px;
+    border:none;
+    background:#ff9800;
+    color:#fff;
+    font-weight:600;
+    cursor:pointer;
+    border-radius:0 6px 6px 0;
+}
+
+.menu{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+}
+
+.menu a:hover{
+    color:#ffc107;
+}
+
+.hero{
+    text-align:center;
+    padding:80px 20px;
+    background:linear-gradient(135deg,#1565c0,#42a5f5);
+    color:white;
+}
+
+.hero h1{
+    font-size:48px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:20px;
+    margin-bottom:30px;
+}
+
+.hero button{
+    background:#ff9800;
+    color:white;
+    border:none;
+    padding:15px 35px;
+    font-size:18px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.categories{
+    max-width:1200px;
+    margin:60px auto;
+    padding:20px;
+}
+
+.categories h2{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    text-align:center;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    transition:.3s;
+    font-weight:600;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+footer{
+    background:#0d47a1;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:60px;
+}
+
+@media(max-width:768px){
+
+.topbar{
+flex-direction:column;
+}
+
+.hero h1{
+font-size:34px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+.menu{
+justify-content:center;
+}
+
+}
