@@ -71,7 +71,13 @@ loadProducts();
 
 async function loadProducts(){
 
-const res=await fetch(SCRIPT_URL+"?action=products");
+const res = await fetch(SCRIPT_URL + "?action=products");
+
+console.log(res.status);
+
+const data = await res.json();
+
+console.log(data);
 
 const data=await res.json();
 
