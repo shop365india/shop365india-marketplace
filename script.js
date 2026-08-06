@@ -46,21 +46,27 @@ if (requirementForm) {
 const productForm = document.getElementById("productForm");
 
 if (productForm) {
-    productForm.addEventListener("submit", function(e) {
+    productForm.addEventListener("submit", async function(e) {
         e.preventDefault();
 
-        fetch(SCRIPT_URL, {
-            method: "POST",
-            body: new URLSearchParams(new FormData(productForm))
-        })
-        .then(response => response.text())
-        .then(data => {
-            alert(data);
+        try {
+
+            const response = await fetch(SCRIPT_URL, {
+                method: "POST",
+                body: new URLSearchParams(new FormData(productForm)),
+                redirect: "follow"
+            });
+
+            const text = await response.text();
+
+            alert("Product Added Successfully!");
+            console.log(text);
+
             productForm.reset();
-        })
-        .catch(error => {
-            alert(error);
-            console.error(error);
-        });
+
+        } catch (err) {
+            console.error(err);
+            alert("Error: " + err.message);
+        }
     });
 }
