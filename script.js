@@ -1,48 +1,58 @@
-https://script.google.com/macros/s/AKfycbyndczHHa9Z4VM4eysGbbm1PnY94wuWOLCjz-1HIHdJHLe39RNq4rw85ViSpH9xYxyr/exec
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyndczHHa9Z4VM4eysGbbm1PnY94wuWOLCjz-1HIHdJHLe39RNq4rw85ViSpH9xYxyr/exec";
 
-// Seller Form
+// ================= SELLER FORM =================
 const sellerForm = document.getElementById("sellerForm");
 
 if (sellerForm) {
-    sellerForm.addEventListener("submit", function(e) {
+    sellerForm.addEventListener("submit", async function(e) {
         e.preventDefault();
 
-        fetch(SCRIPT_URL, {
-            method: "POST",
-            body: new FormData(sellerForm)
-        })
-        .then(() => {
-            alert("Seller Registration Submitted Successfully!");
+        try {
+            const response = await fetch(SCRIPT_URL, {
+                method: "POST",
+                body: new URLSearchParams(new FormData(sellerForm))
+            });
+
+            const text = await response.text();
+
+            alert(text);
             sellerForm.reset();
-        })
-        .catch(() => {
-            alert("Something went wrong.");
-        });
+
+        } catch (err) {
+            console.error(err);
+            alert("Error : " + err.message);
+        }
     });
 }
 
-// Requirement Form
+
+// ================= REQUIREMENT FORM =================
 const requirementForm = document.getElementById("requirementForm");
 
 if (requirementForm) {
-    requirementForm.addEventListener("submit", function(e) {
+    requirementForm.addEventListener("submit", async function(e) {
         e.preventDefault();
 
-        fetch(SCRIPT_URL, {
-            method: "POST",
-            body: new FormData(requirementForm)
-        })
-        .then(() => {
-            alert("Requirement Submitted Successfully!");
+        try {
+            const response = await fetch(SCRIPT_URL, {
+                method: "POST",
+                body: new URLSearchParams(new FormData(requirementForm))
+            });
+
+            const text = await response.text();
+
+            alert(text);
             requirementForm.reset();
-        })
-        .catch(() => {
-            alert("Something went wrong.");
-        });
+
+        } catch (err) {
+            console.error(err);
+            alert("Error : " + err.message);
+        }
     });
 }
 
-// Product Form
+
+// ================= PRODUCT FORM =================
 const productForm = document.getElementById("productForm");
 
 if (productForm) {
@@ -50,23 +60,19 @@ if (productForm) {
         e.preventDefault();
 
         try {
-
             const response = await fetch(SCRIPT_URL, {
                 method: "POST",
-                body: new URLSearchParams(new FormData(productForm)),
-                redirect: "follow"
+                body: new URLSearchParams(new FormData(productForm))
             });
 
             const text = await response.text();
 
-            alert("Product Added Successfully!");
-            console.log(text);
-
+            alert(text);
             productForm.reset();
 
         } catch (err) {
             console.error(err);
-            alert("Error: " + err.message);
+            alert("Error : " + err.message);
         }
     });
 }
