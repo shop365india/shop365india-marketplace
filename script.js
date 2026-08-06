@@ -69,73 +69,45 @@ loadProducts();
 
 }
 
-async function loadProducts(){
+async function loadProducts() {
 
-const res = await fetch(SCRIPT_URL + "?action=products");
+    const res = await fetch(SCRIPT_URL + "?action=products");
 
-console.log(res.status);
+    console.log(res.status);
 
-const data = await res.json();
+    const data = await res.json();
 
-console.log(data);
+    console.log(data);
 
-const data=await res.json();
+    productGrid.innerHTML = "";
 
-productGrid.innerHTML="";
+    data.reverse();
 
-data.reverse();
+    data.forEach(p => {
 
-data.forEach(p=>{
+        productGrid.innerHTML += `
+        <div class="product-card">
 
-productGrid.innerHTML+=`
+            <img src="${p.image || 'https://via.placeholder.com/300x220?text=No+Image'}" alt="${p.product}">
 
-<div class="product-card">
+            <h3>${p.product}</h3>
 
-<img src="${p.image || 'https://via.placeholder.com/300x220?text=No+Image'}" alt="${p.product}">
+            <p>${p.category}</p>
 
-<h3>${p.product}</h3>
+            <h4>₹ ${p.price}</h4>
 
-<p>${p.category}</p>
+            <p>${p.brand}</p>
 
-<h4>₹ ${p.price}</h4>
+            <a target="_blank"
+               href="https://wa.me/919310842024?text=I want to buy ${encodeURIComponent(p.product)}">
 
-<p>${p.brand}</p>
+                <button class="wa-btn">WhatsApp</button>
 
-<a target="_blank"
+            </a>
 
-href="https://wa.me/919310842024?text=I want to buy ${encodeURIComponent(p.product)}">
+        </div>
+        `;
 
-<button class="wa-btn">WhatsApp</button>
-
-</a>
-
-</div>
-
-`;
-
-});
+    });
 
 }
-
-// ================= SEARCH =================
-
-function searchProducts(){
-
-let text=document.getElementById("searchBox").value.toLowerCase();
-
-let cards=document.querySelectorAll(".product-card");
-
-cards.forEach(card=>{
-
-if(card.innerText.toLowerCase().includes(text))
-
-card.style.display="block";
-
-else
-
-card.style.display="none";
-
-});
-
-}
-loadProducts();
