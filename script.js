@@ -94,13 +94,15 @@ async function loadProducts() {
 <a href="product.html?id=${encodeURIComponent(p.product)}"
 style="text-decoration:none;color:inherit;display:block;">
 
-<div class="product-card">
-
 <img src="${p.image || 'https://via.placeholder.com/300x220?text=No+Image'}" alt="${p.product}">
 
 <h3>${p.product}</h3>
 
 <p>${p.category}</p>
+
+<h4>₹ ${p.price}</h4>
+
+<p>${p.brand}</p>
 
 </a>
 
@@ -112,9 +114,6 @@ target="_blank">
 </a>
 
 </div>
-</div>
-
-</a>
 `;
     });
 
