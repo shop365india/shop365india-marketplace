@@ -173,3 +173,24 @@ async function loadProductDetails() {
     `;
 
 }
+// ================= CATEGORY FILTER =================
+
+function filterCategory(category){
+
+    document.querySelectorAll(".product-card").forEach(card=>{
+
+        const productCategory = card.querySelector("p").innerText.trim();
+
+        if(productCategory === category){
+
+            card.parentElement.style.display="block";
+
+        }else{
+
+            card.parentElement.style.display="none";
+
+        }
+
+    });
+
+}
