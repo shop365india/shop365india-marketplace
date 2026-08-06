@@ -89,7 +89,10 @@ async function loadProducts() {
     data.forEach(p => {
 
       productGrid.innerHTML += `
-<a href="product.html?id=${encodeURIComponent(p.product)}" style="text-decoration:none;color:inherit;">
+<div class="product-card">
+
+<a href="product.html?id=${encodeURIComponent(p.product)}"
+style="text-decoration:none;color:inherit;display:block;">
 
 <div class="product-card">
 
@@ -99,12 +102,16 @@ async function loadProducts() {
 
 <p>${p.category}</p>
 
-<h4>₹ ${p.price}</h4>
+</a>
 
-<p>${p.brand}</p>
+<a href="https://wa.me/919310842024?text=I want to buy ${encodeURIComponent(p.product)}"
+target="_blank">
 
-<button class="wa-btn">WhatsApp</button>
+<button type="button" class="wa-btn">WhatsApp</button>
 
+</a>
+
+</div>
 </div>
 
 </a>
