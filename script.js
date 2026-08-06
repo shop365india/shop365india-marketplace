@@ -1,4 +1,4 @@
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzT0ANkDzSjYz4ZraKnnofO3yCMMoZyvaL-IS2Dnrwv4jUUCXkhII1JUyQrMVppwIJt/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyndczHHa9Z4VM4eysGbbm1PnY94wuWOLCjz-1HIHdJHLe39RNq4rw85ViSpH9xYxyr/exec";
 
 // Seller Form
 const sellerForm = document.getElementById("sellerForm");
