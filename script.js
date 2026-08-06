@@ -88,29 +88,82 @@ async function loadProducts() {
 
     data.forEach(p => {
 
-        productGrid.innerHTML += `
-        <div class="product-card">
+      productGrid.innerHTML += `
+<a href="product.html?id=${encodeURIComponent(p.product)}" style="text-decoration:none;color:inherit;">
 
-            <img src="${p.image || 'https://via.placeholder.com/300x220?text=No+Image'}" alt="${p.product}">
+<div class="product-card">
 
-            <h3>${p.product}</h3>
+<img src="${p.image || 'https://via.placeholder.com/300x220?text=No+Image'}" alt="${p.product}">
 
-            <p>${p.category}</p>
+<h3>${p.product}</h3>
 
-            <h4>₹ ${p.price}</h4>
+<p>${p.category}</p>
 
-            <p>${p.brand}</p>
+<h4>₹ ${p.price}</h4>
 
-            <a target="_blank"
-               href="https://wa.me/919310842024?text=I want to buy ${encodeURIComponent(p.product)}">
+<p>${p.brand}</p>
 
-                <button class="wa-btn">WhatsApp</button>
+<button class="wa-btn">WhatsApp</button>
+
+</div>
+
+</a>
+`;
+    });
+
+}
+// ================= PRODUCT DETAILS =================
+
+const details = document.getElementById("productDetails");
+
+if (details) {
+
+    loadProductDetails();
+
+}
+
+async function loadProductDetails() {
+
+    const params = new URLSearchParams(window.location.search);
+
+    const productName = params.get("id");
+
+    const res = await fetch(SCRIPT_URL + "?action=products");
+
+    const data = await res.json();
+
+    const product = data.find(p => p.product === productName);
+
+    if (!product) {
+
+        details.innerHTML = "<h2>Product Not Found</h2>";
+
+        return;
+
+    }
+
+    details.innerHTML = `
+        <div class="product-card" style="max-width:700px;margin:auto;">
+
+            <img src="${product.image}" style="width:100%;max-height:400px;object-fit:cover;">
+
+            <h2>${product.product}</h2>
+
+            <p><b>Category:</b> ${product.category}</p>
+
+            <p><b>Brand:</b> ${product.brand}</p>
+
+            <h3>₹ ${product.price}</h3>
+
+            <p>${product.description}</p>
+
+            <a href="https://wa.me/919310842024?text=I want to buy ${encodeURIComponent(product.product)}" target="_blank">
+
+                <button class="wa-btn">WhatsApp Enquiry</button>
 
             </a>
 
         </div>
-        `;
-
-    });
+    `;
 
 }
