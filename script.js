@@ -132,3 +132,4 @@ card.style.display="none";
 });
 
 }
+loadProducts();
