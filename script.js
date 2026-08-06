@@ -85,7 +85,7 @@ productGrid.innerHTML+=`
 
 <div class="product-card">
 
-<img src="https://via.placeholder.com/250x180?text=${encodeURIComponent(p.product)}">
+<img src="${p.image || 'https://via.placeholder.com/300x220?text=No+Image'}" alt="${p.product}">
 
 <h3>${p.product}</h3>
 
