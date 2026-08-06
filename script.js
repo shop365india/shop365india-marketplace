@@ -71,7 +71,10 @@ loadProducts();
 
 async function loadProducts() {
 
-    const res = await fetch(SCRIPT_URL + "?action=products");
+    const res = await fetch(SCRIPT_URL + "?action=products", {
+    redirect: "follow",
+    cache: "no-store"
+});
 
     console.log(res.status);
 
